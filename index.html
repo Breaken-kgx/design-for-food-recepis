@@ -3,12 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odin Recipes</title>
+    <meta name="theme-color" content="#0e0d09">
+    <meta name="description" content="Three Indonesian recipes, gathered for the table.">
+    <title>Odin Recipes — A place for good food</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    <h1>Odin Recipes</h1>
-    <a href="recipes/martabak.html">Martabak Recipe</a>
-    <a href="recipes/nasigoreng.html">Nasi Goreng Recipe</a>
-    <a href="recipes/rawon.html">Rawon Recipe</a>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to recipes</a>
+    <div class="site-shell">
+        <header class="site-header">
+            <a class="site-brand type-label" href="#top" aria-label="Odin Recipes home">
+                Odin <span>Recipes</span>
+            </a>
+            <p class="site-tagline type-small">A place for good food</p>
+            <a class="header-link type-label" href="#recipes">The collection <span aria-hidden="true">↗</span></a>
+        </header>
+
+        <main id="main-content">
+            <section class="hero" aria-labelledby="page-title">
+                <div class="hero-rule hero-rule--left" aria-hidden="true"></div>
+                <div class="hero-rule hero-rule--right" aria-hidden="true"></div>
+                <h1 class="hero-title type-display" id="page-title">Odin Recipes</h1>
+                <a class="hero-cta type-label" href="#recipes">
+                    Browse the dishes <span aria-hidden="true">↓</span>
+                </a>
+                <p class="hero-description type-body">Three Indonesian recipes, gathered for the table.</p>
+                <div class="hero-stem" aria-hidden="true"></div>
+            </section>
+
+            <section class="recipes-section" id="recipes" aria-labelledby="recipes-title">
+                <div class="recipes-inner">
+                    <div class="section-heading">
+                        <h2 class="section-title type-heading" id="recipes-title">From our kitchen</h2>
+                        <p class="section-description type-body">Three distinct dishes. Find a new favorite, or return to one you know.</p>
+                    </div>
+
+                    <div class="recipe-grid">
+                        <a class="recipe-card recipe-card--featured" href="recipes/nasigoreng.html" aria-label="View the Nasi Goreng recipe">
+                            <div class="featured-image recipe-image-wrap">
+                                <img src="recipes/images/nasigoreng.jpg" alt="Nasi Goreng served with a fried egg and cucumber" loading="lazy" decoding="async">
+                                <span class="featured-image-shade" aria-hidden="true"></span>
+                                <span class="image-badge type-label">Explore recipe</span>
+                            </div>
+                            <div class="featured-info">
+                                <div>
+                                    <h3 class="recipe-title type-heading">Nasi Goreng</h3>
+                                    <p class="recipe-caption type-small">A recipe for the table</p>
+                                </div>
+                                <span class="round-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+
+                        <a class="recipe-card recipe-card--compact" href="recipes/martabak.html" aria-label="View the Martabak recipe">
+                            <div class="compact-image recipe-image-wrap">
+                                <img src="recipes/images/martabak.jpg" alt="Golden Martabak on a wooden board" loading="lazy" decoding="async">
+                            </div>
+                            <div class="compact-info">
+                                <span class="recipe-kicker type-label">Discover</span>
+                                <div>
+                                    <h3 class="recipe-title type-heading">Martabak</h3>
+                                    <p class="recipe-caption type-small">View the recipe</p>
+                                </div>
+                                <span class="text-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+
+                        <a class="recipe-card recipe-card--compact" href="recipes/rawon.html" aria-label="View the Rawon recipe">
+                            <div class="compact-image recipe-image-wrap">
+                                <img src="recipes/images/rawon.jpg" alt="A bowl of Rawon with egg and fresh bean sprouts" loading="lazy" decoding="async">
+                            </div>
+                            <div class="compact-info">
+                                <span class="recipe-kicker type-label">Discover</span>
+                                <div>
+                                    <h3 class="recipe-title type-heading">Rawon</h3>
+                                    <p class="recipe-caption type-small">View the recipe</p>
+                                </div>
+                                <span class="text-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p class="footer-brand type-label">Odin Recipes</p>
+            <a class="back-to-top type-small" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+        </footer>
+    </div>
 </body>
 </html>

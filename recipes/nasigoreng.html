@@ -3,32 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes</title>
+    <meta name="theme-color" content="#0e0d09">
+    <meta name="description" content="Ingredients and cooking instructions for Nasi Goreng.">
+    <title>Nasi Goreng Recipe | Odin Recipes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="recipe.css">
 </head>
-<a href="../index.html">Home</a>
-<body>
-    <h1>Recipes</h1>
-    <img src="images/nasigoreng.jpg" alt="Nasi Goreng">
-    <h2>Nasi Goreng</h2>
-    <p>Ingredients:</p>
-    <ul>
-        <li>2 cups cooked rice</li>
-        <li>2 eggs, beaten</li>
-        <li>1/2 cup vegetable oil</li>
-        <li>2 cloves garlic, minced</li>
-        <li>1 shallot, minced</li>
-        <li>1 tsp turmeric powder</li>
-        <li>2 tbsp kecap manis</li>
-        <li>Salt and pepper to taste</li>
-    </ul>
-    <p>Instructions:</p>
-    <ol>
-        <li>Heat vegetable oil in a large pan over medium heat.</li>
-        <li>Add garlic and shallot, sauté until fragrant.</li>
-        <li>Pour in beaten eggs and scramble until cooked through.</li>
-        <li>Add cooked rice and stir to combine.</li>
-        <li>Add turmeric powder, kecap manis, salt, and pepper. Stir well.</li>
-        <li>Cook for another 5 minutes or until heated through.</li>
-    </ol>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to recipe</a>
+    <div class="site-shell">
+        <header class="site-header">
+            <a class="site-brand type-label" href="../index.html" aria-label="Odin Recipes home">
+                Odin <span>Recipes</span>
+            </a>
+            <p class="site-tagline type-small">A place for good food</p>
+            <a class="header-link type-label" href="../index.html#recipes">The collection <span aria-hidden="true">↗</span></a>
+        </header>
+
+        <main class="recipe-main" id="main-content">
+            <section class="recipe-hero" aria-labelledby="recipe-title">
+                <div class="recipe-hero-copy">
+                    <h1 class="recipe-page-title type-display" id="recipe-title">Nasi Goreng</h1>
+                    <a class="recipe-return type-label" href="../index.html#recipes">Back to the collection <span aria-hidden="true">↗</span></a>
+                </div>
+                <figure class="recipe-photo">
+                    <img src="images/nasigoreng.jpg" alt="Nasi Goreng served with a fried egg and cucumber" fetchpriority="high" decoding="async">
+                </figure>
+            </section>
+
+            <section class="recipe-content" aria-label="Nasi Goreng recipe">
+                <div class="recipe-content-inner">
+                    <section class="recipe-section" aria-labelledby="ingredients-title">
+                        <h2 class="recipe-section-title" id="ingredients-title">Ingredients</h2>
+                        <ul class="ingredient-list">
+                            <li>2 cups cooked rice</li>
+                            <li>2 eggs, beaten</li>
+                            <li>1/2 cup vegetable oil</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 shallot, minced</li>
+                            <li>1 tsp turmeric powder</li>
+                            <li>2 tbsp kecap manis</li>
+                            <li>Salt and pepper to taste</li>
+                        </ul>
+                    </section>
+
+                    <section class="recipe-section" aria-labelledby="instructions-title">
+                        <h2 class="recipe-section-title" id="instructions-title">Instructions</h2>
+                        <ol class="instruction-list">
+                            <li>Heat vegetable oil in a large pan over medium heat.</li>
+                            <li>Add garlic and shallot, sauté until fragrant.</li>
+                            <li>Pour in beaten eggs and scramble until cooked through.</li>
+                            <li>Add cooked rice and stir to combine.</li>
+                            <li>Add turmeric powder, kecap manis, salt, and pepper. Stir well.</li>
+                            <li>Cook for another 5 minutes or until heated through.</li>
+                        </ol>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <a class="footer-brand type-label" href="../index.html">Odin Recipes</a>
+            <a class="back-to-top type-small" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+        </footer>
+    </div>
 </body>
 </html>
