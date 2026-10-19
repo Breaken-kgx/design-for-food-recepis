@@ -14,63 +14,88 @@
     <script src="../app.js" defer></script>
 </head>
 <body id="top">
-    <a class="skip-link" href="#main-content">Skip to recipe</a>
-    <div class="site-shell">
+    <a class="skip-link" href="#ingredients">Skip to ingredients</a>
+    <div class="site-shell recipe-shell">
         <header class="site-header">
             <a class="site-brand type-label" href="../index.html" aria-label="Taste Like Home home">
                 Taste Like <span>Home</span>
             </a>
-            <p class="site-tagline type-small">A place for good food</p>
-            <a class="header-link type-label" href="../index.html#recipes">The collection <span aria-hidden="true">↗</span></a>
+            <a class="header-link type-label" href="../index.html#recipes">Back to the collection <span aria-hidden="true">↗</span></a>
         </header>
 
-        <main class="recipe-main" id="main-content">
-            <section class="recipe-hero" aria-labelledby="recipe-title">
-                <div class="recipe-hero-copy">
-                    <h1 class="recipe-page-title type-display" id="recipe-title">Martabak</h1>
-                    <a class="recipe-return type-label" href="../index.html#recipes">Back to the collection <span aria-hidden="true">↗</span></a>
+        <main id="main-content" class="recipe-main">
+            <section class="recipe-head" aria-labelledby="recipe-title">
+                <div class="recipe-title-group">
+                    <h1 class="recipe-title type-display" id="recipe-title">Martabak</h1>
+                    <p class="recipe-countline type-body"><strong>7 ingredients</strong><span aria-hidden="true">·</span><strong>9 instructions</strong></p>
                 </div>
-                <figure class="recipe-photo">
-                    <img src="images/martabak.jpg" alt="Golden Martabak with melted cheese on a wooden board" fetchpriority="high" decoding="async">
-                </figure>
+                <nav class="section-nav type-label" aria-label="Jump to recipe section">
+                    <a href="#ingredients">Ingredients</a>
+                    <a href="#instructions">Instructions</a>
+                </nav>
             </section>
 
-            <section class="recipe-content" aria-label="Martabak recipe">
-                <div class="recipe-content-inner">
-                    <section class="recipe-section" aria-labelledby="ingredients-title">
-                        <h2 class="recipe-section-title" id="ingredients-title">Ingredients</h2>
-                        <ul class="ingredient-list">
-                            <li>2 cups all-purpose flour</li>
-                            <li>1 cup warm water</li>
-                            <li>2 eggs</li>
-                            <li>1/2 cup sugar</li>
-                            <li>1 tsp vanilla extract</li>
-                            <li>1/2 tsp salt</li>
-                            <li>1/2 cup butter, melted</li>
-                        </ul>
-                    </section>
-
-                    <section class="recipe-section" aria-labelledby="instructions-title">
-                        <h2 class="recipe-section-title" id="instructions-title">Instructions</h2>
-                        <ol class="instruction-list">
-                            <li>Mix flour, sugar, and salt in a large bowl.</li>
-                            <li>In another bowl, whisk together warm water, eggs, vanilla, and melted butter.</li>
-                            <li>Pour the wet ingredients into the dry ingredients and mix until a smooth dough forms.</li>
-                            <li>Let the dough rest for 30 minutes.</li>
-                            <li>Preheat the oven to 375°F (190°C).</li>
-                            <li>Roll out the dough on a floured surface to about 1/4 inch thickness.</li>
-                            <li>Cut into circles using a glass or cookie cutter.</li>
-                            <li>Place on a baking sheet lined with parchment paper.</li>
-                            <li>Bake for 10-12 minutes or until golden brown.</li>
-                        </ol>
-                    </section>
+            <section class="progress-rail" aria-label="Checklist progress controls">
+                <div class="progress-unit">
+                    <div class="progress-topline">
+                        <span class="progress-label">Ingredients</span>
+                        <span class="progress-count" id="ingredients-count" aria-live="polite">0 of 7 complete</span>
+                    </div>
+                    <progress class="progress-bar" id="ingredients-progress" data-list-name="ingredients" aria-label="0 of 7 ingredients checked" max="7" value="0">0 of 7</progress>
+                </div>
+                <div class="progress-unit">
+                    <div class="progress-topline">
+                        <span class="progress-label">Instructions</span>
+                        <span class="progress-count" id="instructions-count" aria-live="polite">0 of 9 complete</span>
+                    </div>
+                    <progress class="progress-bar" id="instructions-progress" data-list-name="instructions" aria-label="0 of 9 instructions checked" max="9" value="0">0 of 9</progress>
+                </div>
+                <div class="clear-utility">
+                    <p class="clear-explainer type-small">Clears both lists.</p>
+                    <button class="clear-progress type-label" id="clear-progress" type="button">Clear progress</button>
                 </div>
             </section>
+
+            <div class="recipe-spread">
+                <section class="ingredient-panel" id="ingredients" aria-labelledby="ingredients-title">
+                    <div class="section-heading">
+                        <h2 class="type-heading" id="ingredients-title">Ingredients</h2>
+                        <span class="list-meta type-label">7 items</span>
+                    </div>
+                    <ul class="ingredient-list">
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>2 cups all-purpose flour</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1 cup warm water</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>2 eggs</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1/2 cup sugar</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1 tsp vanilla extract</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1/2 tsp salt</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1/2 cup butter, melted</span></label></li>
+                    </ul>
+                </section>
+
+                <section class="instruction-panel" id="instructions" aria-labelledby="instructions-title">
+                    <div class="section-heading section-heading--dark">
+                        <h2 class="type-heading" id="instructions-title">Instructions</h2>
+                        <span class="list-meta type-label">9 steps</span>
+                    </div>
+                    <ol class="instruction-list">
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Mix flour, sugar, and salt in a large bowl.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>In another bowl, whisk together warm water, eggs, vanilla, and melted butter.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Pour the wet ingredients into the dry ingredients and mix until a smooth dough forms.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Let the dough rest for 30 minutes.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Preheat the oven to 375°F (190°C).</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Roll out the dough on a floured surface to about 1/4 inch thickness.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Cut into circles using a glass or cookie cutter.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Place on a baking sheet lined with parchment paper.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Bake for 10-12 minutes or until golden brown.</span></label></li>
+                    </ol>
+                </section>
+            </div>
         </main>
 
-        <footer class="site-footer">
-            <a class="footer-brand type-label" href="../index.html">Taste Like Home</a>
-            <a class="back-to-top type-small" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+        <footer class="site-footer recipe-footer">
+            <p class="footer-brand type-label">Taste Like Home</p>
+            <a class="back-to-top type-small" href="#top">Back to top <span aria-hidden="true">↑</span></a>
         </footer>
     </div>
 </body>

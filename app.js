@@ -1,85 +1,75 @@
 const searchInput = document.querySelector("#recipe-search");
 
 if (searchInput) {
-    const cards = [...document.querySelectorAll(".recipe-card")];
-    const searchStatus = document.querySelector(".search-status");
-    const emptyMessage = document.querySelector(".empty-search");
+    const entries = [...document.querySelectorAll(".collection-entry")];
+    const searchStatus = document.querySelector("#search-status");
+    const emptyMessage = document.querySelector("#empty-search");
 
     const filterRecipes = () => {
         const query = searchInput.value.trim().toLocaleLowerCase();
         let visibleCount = 0;
 
-        cards.forEach((card) => {
-            const matches = card.textContent.toLocaleLowerCase().includes(query);
-            card.hidden = !matches;
+        entries.forEach((entry) => {
+            const matches = (entry.dataset.search ?? entry.textContent).toLocaleLowerCase().includes(query);
+            entry.hidden = !matches;
             visibleCount += Number(matches);
         });
 
-        searchStatus.textContent = `${visibleCount} ${visibleCount === 1 ? "dish" : "dishes"}`;
-        emptyMessage.hidden = visibleCount !== 0;
+        if (searchStatus) {
+            searchStatus.textContent = `${visibleCount} ${visibleCount === 1 ? "dish" : "dishes"}`;
+        }
+
+        if (emptyMessage) {
+            emptyMessage.hidden = visibleCount !== 0;
+        }
     };
 
     searchInput.addEventListener("input", filterRecipes);
     filterRecipes();
 }
 
-document.querySelectorAll(".recipe-content-inner").forEach((recipe) => {
-    const lists = [...recipe.querySelectorAll(".ingredient-list, .instruction-list")];
-    const checkboxes = [];
+const ingredientList = document.querySelector(".ingredient-list");
+const instructionList = document.querySelector(".instruction-list");
+const clearProgressButton = document.querySelector("#clear-progress");
 
-    lists.forEach((list) => {
-        const section = list.closest(".recipe-section");
-        const progress = document.createElement("div");
-        const label = document.createElement("span");
-        const bar = document.createElement("progress");
-        const items = [...list.querySelectorAll("li")];
+if (ingredientList && instructionList && clearProgressButton) {
+    const ingredientInputs = [...ingredientList.querySelectorAll('input[type="checkbox"]')];
+    const instructionInputs = [...instructionList.querySelectorAll('input[type="checkbox"]')];
+    const ingredientCount = document.querySelector("#ingredients-count");
+    const instructionCount = document.querySelector("#instructions-count");
+    const ingredientProgress = document.querySelector("#ingredients-progress");
+    const instructionProgress = document.querySelector("#instructions-progress");
 
-        progress.className = "checklist-progress";
-        label.className = "checklist-progress-label type-label";
-        bar.max = items.length;
-        bar.value = 0;
-        bar.setAttribute("aria-label", `${section.querySelector("h2").textContent} completed`);
-        progress.append(label, bar);
-        section.querySelector("h2").after(progress);
+    const updateListProgress = (inputs, count, progress) => {
+        const completed = inputs.filter((input) => input.checked).length;
+        const total = inputs.length;
 
-        const updateProgress = () => {
-            const completed = items.filter((item) => item.querySelector("input").checked).length;
-            label.textContent = `${completed} of ${items.length} complete`;
-            bar.value = completed;
-        };
+        if (count) {
+            count.textContent = `${completed} of ${total} complete`;
+        }
 
-        items.forEach((item) => {
-            const checkbox = document.createElement("input");
-            const itemLabel = document.createElement("label");
+        if (progress) {
+            progress.max = total;
+            progress.value = completed;
+            progress.setAttribute("aria-label", `${completed} of ${total} ${progress.dataset.listName} checked`);
+        }
+    };
 
-            checkbox.type = "checkbox";
-            checkbox.addEventListener("change", () => {
-                item.classList.toggle("is-complete", checkbox.checked);
-                updateProgress();
-            });
+    const updateProgress = () => {
+        updateListProgress(ingredientInputs, ingredientCount, ingredientProgress);
+        updateListProgress(instructionInputs, instructionCount, instructionProgress);
+    };
 
-            while (item.firstChild) {
-                itemLabel.append(item.firstChild);
-            }
+    [...ingredientInputs, ...instructionInputs].forEach((input) => {
+        input.addEventListener("change", updateProgress);
+    });
 
-            itemLabel.prepend(checkbox);
-            item.append(itemLabel);
-            checkboxes.push(checkbox);
+    clearProgressButton.addEventListener("click", () => {
+        [...ingredientInputs, ...instructionInputs].forEach((input) => {
+            input.checked = false;
         });
-
         updateProgress();
     });
 
-    const resetButton = document.createElement("button");
-    resetButton.className = "checklist-reset type-label";
-    resetButton.type = "button";
-    resetButton.textContent = "Clear progress";
-    resetButton.addEventListener("click", () => {
-        checkboxes.forEach((checkbox) => {
-            checkbox.checked = false;
-            checkbox.closest("li").classList.remove("is-complete");
-            checkbox.dispatchEvent(new Event("change"));
-        });
-    });
-    recipe.prepend(resetButton);
-});
+    updateProgress();
+}

@@ -2,280 +2,487 @@
     width: 100%;
 }
 
-.recipe-hero {
+.recipe-head {
     display: grid;
-    width: min(100%, 1440px);
-    min-height: 560px;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    align-items: center;
-    gap: clamp(2rem, 6vw, 6rem);
+    width: min(100%, 1360px);
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 2rem;
     margin: 0 auto;
-    padding: 4.5rem var(--page-gutter) 5rem;
+    padding: 2.25rem var(--page-gutter) 1.5rem;
 }
 
-.recipe-hero-copy {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+.recipe-title-group {
+    min-width: 0;
 }
 
-.recipe-eyebrow {
-    margin-bottom: 1.25rem;
-    color: var(--color-matcha);
-    font-size: 0.7rem;
-}
-
-.recipe-page-title {
-    max-width: 100%;
+.recipe-title {
     margin: 0;
     color: var(--color-paper);
-    font-size: clamp(3.75rem, 7.5vw, 7rem);
-    letter-spacing: -0.055em;
-    line-height: 0.98;
-    overflow-wrap: anywhere;
+    font-size: clamp(3.5rem, 7vw, 5.875rem);
+    letter-spacing: -0.035em;
+    line-height: 1;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
-.recipe-return {
-    display: inline-flex;
-    min-height: 52px;
+.recipe-countline {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 0.7rem;
-    margin-top: 2rem;
-    border: 2px solid var(--color-peach);
-    border-radius: 6px;
-    padding: 0.8rem 1.4rem;
-    color: var(--color-peach);
-    font-size: 0.7rem;
-    text-decoration: none;
-    transition: background-color 180ms ease, color 180ms ease;
+    gap: 0.5rem;
+    margin: 0.75rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
-.recipe-return:hover {
+.recipe-countline strong {
+    color: var(--color-matcha);
+    font-weight: 500;
+}
+
+.section-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.25rem;
+}
+
+.section-nav a {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    border-bottom: 2px solid var(--color-sage);
+    padding: 0 0.75rem;
+    color: var(--color-paper);
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.section-nav a:hover {
+    border-color: var(--color-peach);
+    color: var(--color-peach);
+}
+
+.progress-rail {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1rem var(--page-gutter);
     background: var(--color-peach);
     color: var(--color-ink);
 }
 
-.recipe-photo {
-    position: relative;
+.progress-unit {
     min-width: 0;
-    aspect-ratio: 1.22;
-    overflow: hidden;
-    background: var(--color-sage);
-    border-radius: 6px;
 }
 
-.recipe-photo::after {
-    position: absolute;
-    inset: 0;
-    border: 1px solid var(--color-paper-edge);
-    border-radius: inherit;
-    content: "";
-    pointer-events: none;
+.progress-topline {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
-.recipe-photo img {
+.progress-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.progress-count {
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.progress-bar {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.recipe-content {
-    padding: 4rem var(--page-gutter) 5rem;
-    background: var(--color-matcha);
+    height: 5px;
+    appearance: none;
+    border: 0;
+    background: rgb(14 13 9 / 18%);
     color: var(--color-ink);
+    accent-color: var(--color-ink);
 }
 
-.recipe-content-inner {
+.progress-bar::-webkit-progress-bar {
+    background: rgb(14 13 9 / 18%);
+}
+
+.progress-bar::-webkit-progress-value,
+.progress-bar::-moz-progress-bar {
+    background: var(--color-ink);
+}
+
+.clear-utility {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.clear-explainer {
+    max-width: 12ch;
+    margin-bottom: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.8125rem;
+    line-height: 1.35;
+}
+
+.clear-progress {
+    min-height: 46px;
+    border: 1px solid var(--color-ink);
+    padding: 0 1rem;
+    background: transparent;
+    color: var(--color-ink);
+    cursor: pointer;
+    font-size: 0.8125rem;
+    letter-spacing: 0.05em;
+}
+
+.clear-progress:hover {
+    background: var(--color-ink);
+    color: var(--color-peach);
+}
+
+.clear-progress:focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+}
+
+.recipe-spread {
     display: grid;
-    width: min(100%, var(--content-width));
-    grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
-    gap: clamp(2.5rem, 7vw, 7rem);
+    width: min(100%, 1440px);
+    grid-template-columns: minmax(310px, 0.92fr) minmax(0, 1.78fr);
+    align-items: stretch;
     margin: 0 auto;
 }
 
-.checklist-reset {
-    justify-self: end;
-    grid-column: 1 / -1;
-    border: 1px solid var(--color-matcha-rule);
-    border-radius: 4px;
-    padding: 0.65rem 0.9rem;
-    background: transparent;
-    color: var(--color-ink-soft);
-    cursor: pointer;
-    font-size: 0.625rem;
-    transition: background-color 180ms ease, color 180ms ease;
+.ingredient-panel,
+.instruction-panel {
+    min-width: 0;
 }
 
-.checklist-reset:hover {
+.ingredient-panel {
+    padding: 2.6rem 2.6rem 3rem max(var(--page-gutter), calc((100vw - 1440px) / 2 + var(--page-gutter)));
+    background: var(--color-matcha);
+    color: var(--color-ink);
+    color-scheme: light;
+}
+
+.instruction-panel {
+    padding: 2.6rem max(var(--page-gutter), calc((100vw - 1440px) / 2 + var(--page-gutter))) 3.25rem 3.35rem;
     background: var(--color-ink);
     color: var(--color-paper);
 }
 
-.recipe-section {
-    min-width: 0;
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 1.25rem;
+    border-bottom: 1px solid var(--color-matcha-rule);
+    padding-bottom: 0.9rem;
 }
 
-.recipe-section-title {
-    margin: 0 0 1.5rem;
-    border-bottom: 1px solid var(--color-matcha-rule);
-    padding: 0 0 1rem;
-    color: var(--color-ink);
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.2vw, 2.75rem);
-    font-weight: 500;
-    letter-spacing: -0.035em;
-    line-height: 1.15;
+.section-heading--dark {
+    border-bottom-color: var(--color-paper-edge);
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.section-heading--dark h2 {
+    color: var(--color-paper);
+}
+
+.list-meta {
+    color: var(--color-ink-soft);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.section-heading--dark .list-meta {
+    color: var(--color-muted);
 }
 
 .ingredient-list,
 .instruction-list {
     margin: 0;
-    padding-left: 1.3rem;
 }
 
-.ingredient-list li,
-.instruction-list li {
-    padding: 0.5rem 0 0.7rem 0.25rem;
-    border-bottom: 1px solid var(--color-matcha-rule);
-    color: var(--color-ink-soft);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    line-height: 1.8;
+.ingredient-list {
+    padding: 0;
+    list-style: none;
 }
 
-.checklist-progress {
+.ingredient-list li {
+    border-top: 1px solid rgb(14 13 9 / 16%);
+}
+
+.ingredient-list li:first-child {
+    border-top: 0;
+}
+
+.ingredient-row {
     display: grid;
-    gap: 0.55rem;
-    margin: -0.5rem 0 1rem;
-}
-
-.checklist-progress-label {
+    min-height: 50px;
+    grid-template-columns: 22px minmax(0, 1fr);
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
     color: var(--color-ink-soft);
-    font-size: 0.6rem;
-}
-
-.checklist-progress progress {
-    display: block;
-    width: 100%;
-    height: 4px;
-    appearance: none;
-    border: 0;
-    background: var(--color-matcha-rule);
-}
-
-.checklist-progress progress::-webkit-progress-bar {
-    background: var(--color-matcha-rule);
-}
-
-.checklist-progress progress::-webkit-progress-value {
-    background: var(--color-sage);
-    transition: width 180ms ease;
-}
-
-.checklist-progress progress::-moz-progress-bar {
-    background: var(--color-sage);
-    transition: width 180ms ease;
-}
-
-.ingredient-list label,
-.instruction-list label {
+    font-size: 0.9375rem;
+    line-height: 1.6;
     cursor: pointer;
 }
 
-.ingredient-list input,
-.instruction-list input {
-    width: 1rem;
-    height: 1rem;
-    margin: 0 0.55rem 0 0;
-    accent-color: var(--color-sage);
-    vertical-align: -0.15rem;
+.ingredient-row input,
+.step-row input {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    margin: 0;
+    accent-color: var(--color-ink);
     cursor: pointer;
 }
 
-.ingredient-list li.is-complete,
-.instruction-list li.is-complete {
-    color: var(--color-body-muted);
+.instruction-list {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: real-step;
 }
 
-.checklist-reset:focus-visible,
-.ingredient-list input:focus-visible,
-.instruction-list input:focus-visible {
-    outline: 2px solid var(--color-peach-deep);
-    outline-offset: 3px;
+.instruction-list li {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.9rem;
+    border-bottom: 1px solid var(--color-paper-edge);
+    padding: 1.15rem 0 1.25rem;
+    counter-increment: real-step;
 }
 
-.ingredient-list li::marker {
-    color: var(--color-sage);
+.instruction-list li:first-child {
+    padding-top: 0.25rem;
 }
 
-.instruction-list li::marker {
-    color: var(--color-ink);
+.instruction-list li::before {
+    content: counter(real-step, decimal-leading-zero);
+    padding-top: 0.2rem;
+    color: var(--color-peach);
     font-family: var(--font-label);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
 }
 
-.recipe-return:focus-visible,
-.site-header a:focus-visible,
-.site-footer a:focus-visible,
-.skip-link:focus-visible {
-    outline: 3px solid var(--color-peach);
+.step-row {
+    display: grid;
+    max-width: 66ch;
+    min-height: 48px;
+    grid-template-columns: 22px minmax(0, 1fr);
+    align-items: start;
+    gap: 0.875rem;
+    color: var(--color-paper);
+    font-size: 1rem;
+    line-height: 1.8;
+    cursor: pointer;
+}
+
+.step-row input {
+    margin-top: 0.35rem;
+    accent-color: var(--color-peach);
+}
+
+.ingredient-row:focus-within,
+.step-row:focus-within {
+    outline: 3px solid var(--color-ink);
     outline-offset: 4px;
 }
 
+.step-row:focus-within {
+    outline-color: var(--color-peach);
+}
+
+.ingredient-row input:checked + span,
+.step-row input:checked + span {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+}
+
+.ingredient-row input:checked + span {
+    color: var(--color-ink-soft);
+    text-decoration-color: var(--color-sage);
+}
+
+.step-row input:checked + span {
+    color: var(--color-paper-soft);
+    text-decoration-color: var(--color-peach);
+}
+
+.recipe-footer .footer-brand {
+    color: var(--color-matcha);
+}
+
 @media (max-width: 800px) {
-    .recipe-hero {
-        min-height: auto;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: 2rem;
-        padding-top: 3.5rem;
-        padding-bottom: 4rem;
+    .recipe-head {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+        padding-top: 1.8rem;
     }
 
-    .recipe-content-inner {
-        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-        gap: 2.5rem;
+    .section-nav {
+        justify-self: start;
+    }
+
+    .progress-rail {
+        gap: 1rem;
+    }
+
+    .progress-count {
+        font-size: 0.75rem;
+    }
+
+    .clear-utility {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .clear-explainer {
+        max-width: none;
+        text-align: center;
+    }
+
+    .recipe-spread {
+        grid-template-columns: minmax(270px, 0.85fr) minmax(0, 1.4fr);
+    }
+
+    .ingredient-panel {
+        padding: 2rem 1.5rem 2.4rem var(--page-gutter);
+    }
+
+    .instruction-panel {
+        padding: 2rem var(--page-gutter) 2.6rem 1.75rem;
     }
 }
 
 @media (max-width: 620px) {
-    .recipe-hero {
+    .recipe-head {
+        gap: 1rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .recipe-title {
+        font-size: clamp(3.3rem, 14vw, 4.75rem);
+    }
+
+    .recipe-countline {
+        margin-top: 0.5rem;
+        font-size: 0.8125rem;
+    }
+
+    .section-nav {
+        gap: 0.6rem;
+    }
+
+    .section-nav a {
+        min-height: 44px;
+        padding-inline: 0.5rem;
+        font-size: 0.8125rem;
+    }
+
+    .progress-rail {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.875rem 1rem;
+        padding-block: 0.8rem;
+    }
+
+    .progress-topline {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .progress-label,
+    .progress-count {
+        font-size: 0.75rem;
+    }
+
+    .clear-utility {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        border-top: 1px solid rgb(14 13 9 / 18%);
+        padding-top: 0.7rem;
+    }
+
+    .clear-explainer {
+        font-size: 0.75rem;
+        text-align: right;
+    }
+
+    .clear-progress {
+        min-height: 44px;
+        white-space: nowrap;
+    }
+
+    .recipe-spread {
         grid-template-columns: minmax(0, 1fr);
-        gap: 2rem;
-        padding-top: 3rem;
-        padding-bottom: 3.5rem;
     }
 
-    .recipe-page-title {
-        font-size: clamp(3.5rem, 15vw, 5.25rem);
+    .ingredient-panel {
+        padding: 1.7rem var(--page-gutter) 2rem;
     }
 
-    .recipe-return {
-        margin-top: 1.5rem;
+    .instruction-panel {
+        padding: 1.8rem var(--page-gutter) 2.4rem;
     }
 
-    .recipe-photo {
-        aspect-ratio: 1.25;
+    .section-heading h2 {
+        font-size: 2.1rem;
     }
 
-    .recipe-content {
-        padding-top: 2.75rem;
-        padding-bottom: 3.25rem;
+    .ingredient-row {
+        min-height: 50px;
+        font-size: 0.9375rem;
     }
 
-    .recipe-content-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2.75rem;
+    .instruction-list li {
+        grid-template-columns: 1.8rem minmax(0, 1fr);
+        gap: 0.6rem;
+        padding-block: 1rem;
+    }
+
+    .step-row {
+        grid-template-columns: 22px minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.9375rem;
+        line-height: 1.75;
+    }
+
+    .recipe-footer {
+        min-height: 68px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .recipe-return,
-    .checklist-reset,
-    .checklist-progress progress::-webkit-progress-value,
-    .checklist-progress progress::-moz-progress-bar {
+    .clear-progress {
         transition: none;
     }
 }

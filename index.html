@@ -13,10 +13,10 @@
     <script src="app.js" defer></script>
 </head>
 <body id="top">
-    <a class="skip-link" href="#main-content">Skip to recipes</a>
+    <a class="skip-link" href="#main-content">Skip to the collection</a>
     <div class="site-shell">
         <header class="site-header">
-            <a class="site-brand type-label" href="#top" aria-label="Taste Like Home home">
+            <a class="site-brand type-label" href="#top" aria-label="Taste Like Home, top of page">
                 Taste Like <span>Home</span>
             </a>
             <p class="site-tagline type-small">A place for good food</p>
@@ -24,75 +24,82 @@
         </header>
 
         <main id="main-content">
-            <section class="hero" aria-labelledby="page-title">
-                <div class="hero-rule hero-rule--left" aria-hidden="true"></div>
-                <div class="hero-rule hero-rule--right" aria-hidden="true"></div>
-                <h1 class="hero-title type-display" id="page-title">Taste Like Home</h1>
-                <a class="hero-cta type-label" href="#recipes">
+            <section class="home-hero" aria-labelledby="page-title">
+                <h1 class="home-title type-display" id="page-title">Taste Like Home</h1>
+                <a class="browse-link type-label" href="#recipes">
                     Browse the dishes <span aria-hidden="true">↓</span>
                 </a>
-                <p class="hero-description type-body">Three Indonesian recipes, gathered for the table.</p>
-                <div class="hero-stem" aria-hidden="true"></div>
             </section>
 
-            <section class="recipes-section" id="recipes" aria-labelledby="recipes-title">
-                <div class="recipes-inner">
-                    <div class="section-heading">
-                        <h2 class="section-title type-heading" id="recipes-title">From our kitchen</h2>
-                        <p class="section-description type-body">Three distinct dishes. Find a new favorite, or return to one you know.</p>
+            <section class="collection-section" id="recipes" aria-labelledby="collection-title">
+                <div class="collection-intro">
+                    <h2 class="collection-title type-heading" id="collection-title">From our kitchen</h2>
+                    <p class="collection-note type-body">Three Indonesian recipes, gathered for the table.</p>
+                </div>
+
+                <div class="search-panel">
+                    <div class="search-panel-inner">
+                        <label class="search-label type-label" for="recipe-search">Find a dish</label>
+                        <input class="search-input type-body" id="recipe-search" type="search" placeholder="Search the collection" autocomplete="off" aria-controls="recipe-grid">
+                        <p class="search-status type-label" id="search-status" aria-live="polite">3 dishes</p>
+                    </div>
+                </div>
+
+                <div class="collection-inner">
+                    <div class="collection-columns type-label" aria-hidden="true">
+                        <span>The dish</span>
+                        <span class="ingredient-column-label">First three ingredients</span>
+                        <span>In each recipe</span>
                     </div>
 
-                    <div class="recipe-search">
-                        <label class="type-label" for="recipe-search">Find a dish</label>
-                        <input id="recipe-search" type="search" placeholder="Search the collection" autocomplete="off" aria-controls="recipe-grid">
-                        <p class="search-status type-small" aria-live="polite"></p>
+                    <div class="recipe-list" id="recipe-grid" aria-label="Recipe collection">
+                        <article class="collection-entry" data-search="nasi goreng recipe explore recipe a recipe for the table">
+                            <h3 class="entry-title type-heading">
+                                <a href="recipes/nasigoreng.html">Nasi Goreng</a>
+                            </h3>
+                            <ul class="ingredient-excerpt type-body" aria-label="First three ingredients">
+                                <li>2 cups cooked rice</li>
+                                <li>2 eggs, beaten</li>
+                                <li>1/2 cup vegetable oil</li>
+                            </ul>
+                            <div class="entry-meta">
+                                <p class="entry-count type-body"><strong>8</strong> ingredients <span aria-hidden="true">·</span> <strong>6</strong> instructions</p>
+                                <a class="entry-link type-label" href="recipes/nasigoreng.html">View Nasi Goreng recipe <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </article>
+
+                        <article class="collection-entry" data-search="martabak recipe discover view the recipe">
+                            <h3 class="entry-title type-heading">
+                                <a href="recipes/martabak.html">Martabak</a>
+                            </h3>
+                            <ul class="ingredient-excerpt type-body" aria-label="First three ingredients">
+                                <li>2 cups all-purpose flour</li>
+                                <li>1 cup warm water</li>
+                                <li>2 eggs</li>
+                            </ul>
+                            <div class="entry-meta">
+                                <p class="entry-count type-body"><strong>7</strong> ingredients <span aria-hidden="true">·</span> <strong>9</strong> instructions</p>
+                                <a class="entry-link type-label" href="recipes/martabak.html">View Martabak recipe <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </article>
+
+                        <article class="collection-entry" data-search="rawon recipe discover view the recipe">
+                            <h3 class="entry-title type-heading">
+                                <a href="recipes/rawon.html">Rawon</a>
+                            </h3>
+                            <ul class="ingredient-excerpt type-body" aria-label="First three ingredients">
+                                <li>1 lb beef brisket</li>
+                                <li>2 cups coconut milk</li>
+                                <li>1 onion, sliced</li>
+                            </ul>
+                            <div class="entry-meta">
+                                <p class="entry-count type-body"><strong>8</strong> ingredients <span aria-hidden="true">·</span> <strong>4</strong> instructions</p>
+                                <a class="entry-link type-label" href="recipes/rawon.html">View Rawon recipe <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </article>
                     </div>
 
-                    <div class="recipe-grid" id="recipe-grid">
-                        <a class="recipe-card recipe-card--featured" href="recipes/nasigoreng.html" aria-label="View the Nasi Goreng recipe">
-                            <div class="featured-image recipe-image-wrap">
-                                <img src="recipes/images/nasigoreng.jpg" alt="Nasi Goreng served with a fried egg and cucumber" loading="lazy" decoding="async">
-                                <span class="featured-image-shade" aria-hidden="true"></span>
-                                <span class="image-badge type-label">Explore recipe</span>
-                            </div>
-                            <div class="featured-info">
-                                <div>
-                                    <h3 class="recipe-title type-heading">Nasi Goreng</h3>
-                                    <p class="recipe-caption type-small">A recipe for the table</p>
-                                </div>
-                                <span class="round-arrow" aria-hidden="true">↗</span>
-                            </div>
-                        </a>
-
-                        <a class="recipe-card recipe-card--compact" href="recipes/martabak.html" aria-label="View the Martabak recipe">
-                            <div class="compact-image recipe-image-wrap">
-                                <img src="recipes/images/martabak.jpg" alt="Golden Martabak on a wooden board" loading="lazy" decoding="async">
-                            </div>
-                            <div class="compact-info">
-                                <span class="recipe-kicker type-label">Discover</span>
-                                <div>
-                                    <h3 class="recipe-title type-heading">Martabak</h3>
-                                    <p class="recipe-caption type-small">View the recipe</p>
-                                </div>
-                                <span class="text-arrow" aria-hidden="true">↗</span>
-                            </div>
-                        </a>
-
-                        <a class="recipe-card recipe-card--compact" href="recipes/rawon.html" aria-label="View the Rawon recipe">
-                            <div class="compact-image recipe-image-wrap">
-                                <img src="recipes/images/rawon.jpg" alt="A bowl of Rawon with egg and fresh bean sprouts" loading="lazy" decoding="async">
-                            </div>
-                            <div class="compact-info">
-                                <span class="recipe-kicker type-label">Discover</span>
-                                <div>
-                                    <h3 class="recipe-title type-heading">Rawon</h3>
-                                    <p class="recipe-caption type-small">View the recipe</p>
-                                </div>
-                                <span class="text-arrow" aria-hidden="true">↗</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="empty-search type-body" hidden>No dishes found. Try another search.</p>
+                    <p class="empty-search type-body" id="empty-search" aria-live="polite" hidden>No dishes found. Try another search.</p>
                 </div>
             </section>
         </main>

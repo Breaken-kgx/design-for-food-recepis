@@ -14,61 +14,86 @@
     <script src="../app.js" defer></script>
 </head>
 <body id="top">
-    <a class="skip-link" href="#main-content">Skip to recipe</a>
-    <div class="site-shell">
+    <a class="skip-link" href="#ingredients">Skip to ingredients</a>
+    <div class="site-shell recipe-shell">
         <header class="site-header">
             <a class="site-brand type-label" href="../index.html" aria-label="Taste Like Home home">
                 Taste Like <span>Home</span>
             </a>
-            <p class="site-tagline type-small">A place for good food</p>
-            <a class="header-link type-label" href="../index.html#recipes">The collection <span aria-hidden="true">↗</span></a>
+            <a class="header-link type-label" href="../index.html#recipes">Back to the collection <span aria-hidden="true">↗</span></a>
         </header>
 
-        <main class="recipe-main" id="main-content">
-            <section class="recipe-hero" aria-labelledby="recipe-title">
-                <div class="recipe-hero-copy">
-                    <h1 class="recipe-page-title type-display" id="recipe-title">Nasi Goreng</h1>
-                    <a class="recipe-return type-label" href="../index.html#recipes">Back to the collection <span aria-hidden="true">↗</span></a>
+        <main id="main-content" class="recipe-main">
+            <section class="recipe-head" aria-labelledby="recipe-title">
+                <div class="recipe-title-group">
+                    <h1 class="recipe-title type-display" id="recipe-title">Nasi Goreng</h1>
+                    <p class="recipe-countline type-body"><strong>8 ingredients</strong><span aria-hidden="true">·</span><strong>6 instructions</strong></p>
                 </div>
-                <figure class="recipe-photo">
-                    <img src="images/nasigoreng.jpg" alt="Nasi Goreng served with a fried egg and cucumber" fetchpriority="high" decoding="async">
-                </figure>
+                <nav class="section-nav type-label" aria-label="Jump to recipe section">
+                    <a href="#ingredients">Ingredients</a>
+                    <a href="#instructions">Instructions</a>
+                </nav>
             </section>
 
-            <section class="recipe-content" aria-label="Nasi Goreng recipe">
-                <div class="recipe-content-inner">
-                    <section class="recipe-section" aria-labelledby="ingredients-title">
-                        <h2 class="recipe-section-title" id="ingredients-title">Ingredients</h2>
-                        <ul class="ingredient-list">
-                            <li>2 cups cooked rice</li>
-                            <li>2 eggs, beaten</li>
-                            <li>1/2 cup vegetable oil</li>
-                            <li>2 cloves garlic, minced</li>
-                            <li>1 shallot, minced</li>
-                            <li>1 tsp turmeric powder</li>
-                            <li>2 tbsp kecap manis</li>
-                            <li>Salt and pepper to taste</li>
-                        </ul>
-                    </section>
-
-                    <section class="recipe-section" aria-labelledby="instructions-title">
-                        <h2 class="recipe-section-title" id="instructions-title">Instructions</h2>
-                        <ol class="instruction-list">
-                            <li>Heat vegetable oil in a large pan over medium heat.</li>
-                            <li>Add garlic and shallot, sauté until fragrant.</li>
-                            <li>Pour in beaten eggs and scramble until cooked through.</li>
-                            <li>Add cooked rice and stir to combine.</li>
-                            <li>Add turmeric powder, kecap manis, salt, and pepper. Stir well.</li>
-                            <li>Cook for another 5 minutes or until heated through.</li>
-                        </ol>
-                    </section>
+            <section class="progress-rail" aria-label="Checklist progress controls">
+                <div class="progress-unit">
+                    <div class="progress-topline">
+                        <span class="progress-label">Ingredients</span>
+                        <span class="progress-count" id="ingredients-count" aria-live="polite">0 of 8 complete</span>
+                    </div>
+                    <progress class="progress-bar" id="ingredients-progress" data-list-name="ingredients" aria-label="0 of 8 ingredients checked" max="8" value="0">0 of 8</progress>
+                </div>
+                <div class="progress-unit">
+                    <div class="progress-topline">
+                        <span class="progress-label">Instructions</span>
+                        <span class="progress-count" id="instructions-count" aria-live="polite">0 of 6 complete</span>
+                    </div>
+                    <progress class="progress-bar" id="instructions-progress" data-list-name="instructions" aria-label="0 of 6 instructions checked" max="6" value="0">0 of 6</progress>
+                </div>
+                <div class="clear-utility">
+                    <p class="clear-explainer type-small">Clears both lists.</p>
+                    <button class="clear-progress type-label" id="clear-progress" type="button">Clear progress</button>
                 </div>
             </section>
+
+            <div class="recipe-spread">
+                <section class="ingredient-panel" id="ingredients" aria-labelledby="ingredients-title">
+                    <div class="section-heading">
+                        <h2 class="type-heading" id="ingredients-title">Ingredients</h2>
+                        <span class="list-meta type-label">8 items</span>
+                    </div>
+                    <ul class="ingredient-list">
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>2 cups cooked rice</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>2 eggs, beaten</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1/2 cup vegetable oil</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>2 cloves garlic, minced</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1 shallot, minced</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>1 tsp turmeric powder</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>2 tbsp kecap manis</span></label></li>
+                        <li><label class="ingredient-row"><input data-group="ingredients" type="checkbox"><span>Salt and pepper to taste</span></label></li>
+                    </ul>
+                </section>
+
+                <section class="instruction-panel" id="instructions" aria-labelledby="instructions-title">
+                    <div class="section-heading section-heading--dark">
+                        <h2 class="type-heading" id="instructions-title">Instructions</h2>
+                        <span class="list-meta type-label">6 steps</span>
+                    </div>
+                    <ol class="instruction-list">
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Heat vegetable oil in a large pan over medium heat.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Add garlic and shallot, sauté until fragrant.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Pour in beaten eggs and scramble until cooked through.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Add cooked rice and stir to combine.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Add turmeric powder, kecap manis, salt, and pepper. Stir well.</span></label></li>
+                        <li><label class="step-row"><input data-group="instructions" type="checkbox"><span>Cook for another 5 minutes or until heated through.</span></label></li>
+                    </ol>
+                </section>
+            </div>
         </main>
 
-        <footer class="site-footer">
-            <a class="footer-brand type-label" href="../index.html">Taste Like Home</a>
-            <a class="back-to-top type-small" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+        <footer class="site-footer recipe-footer">
+            <p class="footer-brand type-label">Taste Like Home</p>
+            <a class="back-to-top type-small" href="#top">Back to top <span aria-hidden="true">↑</span></a>
         </footer>
     </div>
 </body>
