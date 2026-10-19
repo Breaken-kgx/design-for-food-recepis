@@ -1,6 +1,6 @@
 # Taste Like Home
 
-A small collection of Indonesian recipes.
+A small collection of recipes.
 
 ## Interactive features
 
