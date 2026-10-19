@@ -259,6 +259,61 @@ a {
     gap: 1.25rem;
 }
 
+.recipe-search {
+    display: grid;
+    max-width: 360px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin: 0 0 1.25rem auto;
+}
+
+.recipe-search label {
+    color: var(--color-ink-soft);
+    font-size: 0.625rem;
+}
+
+.recipe-search input {
+    width: 100%;
+    min-height: 44px;
+    grid-column: 1 / -1;
+    border: 1px solid var(--color-matcha-rule);
+    border-radius: 4px;
+    padding: 0.65rem 0.8rem;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font: 0.8rem var(--font-body);
+}
+
+.recipe-search input::placeholder {
+    color: var(--color-body-muted);
+}
+
+.recipe-search input:focus-visible {
+    outline: 2px solid var(--color-peach-deep);
+    outline-offset: 2px;
+}
+
+.search-status {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.6875rem;
+    text-align: right;
+}
+
+.empty-search {
+    margin: 1.5rem 0 0;
+    color: var(--color-ink-soft);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.recipe-card[hidden],
+.empty-search[hidden] {
+    display: none;
+}
+
 .recipe-card {
     min-width: 0;
     overflow: hidden;

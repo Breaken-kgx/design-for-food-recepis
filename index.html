@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script src="app.js" defer></script>
 </head>
 <body id="top">
     <a class="skip-link" href="#main-content">Skip to recipes</a>
@@ -41,7 +42,13 @@
                         <p class="section-description type-body">Three distinct dishes. Find a new favorite, or return to one you know.</p>
                     </div>
 
-                    <div class="recipe-grid">
+                    <div class="recipe-search">
+                        <label class="type-label" for="recipe-search">Find a dish</label>
+                        <input id="recipe-search" type="search" placeholder="Search the collection" autocomplete="off" aria-controls="recipe-grid">
+                        <p class="search-status type-small" aria-live="polite"></p>
+                    </div>
+
+                    <div class="recipe-grid" id="recipe-grid">
                         <a class="recipe-card recipe-card--featured" href="recipes/nasigoreng.html" aria-label="View the Nasi Goreng recipe">
                             <div class="featured-image recipe-image-wrap">
                                 <img src="recipes/images/nasigoreng.jpg" alt="Nasi Goreng served with a fried egg and cucumber" loading="lazy" decoding="async">
@@ -85,6 +92,7 @@
                             </div>
                         </a>
                     </div>
+                    <p class="empty-search type-body" hidden>No dishes found. Try another search.</p>
                 </div>
             </section>
         </main>
