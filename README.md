@@ -1,5 +1,9 @@
-# odin-recipes
-making my first web
-make recipes for maratabak
-make recipes for nasi goreng
-make recipes for rawon
+# Taste Like Home
+
+A small collection of Indonesian recipes.
+
+## Interactive features
+
+- Search the collection page to find a dish.
+- Check off ingredients and cooking steps on each recipe page; progress updates as you go.
+- Use **Clear progress** to reset a recipe checklist.
